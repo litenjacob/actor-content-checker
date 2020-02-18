@@ -60,7 +60,7 @@ Apify.main(async () => {
     try {
         screenshotBuffer = await screenshotDOMElement(page, input.screenshotSelector, 10);
     } catch(e) {
-        throw new Error('Cannot get screenshot (screenshot selector is probably wrong)'); 
+        throw new Error('Cannot get screenshot (screenshot selector is probably wrong)' + e.message); 
     }
     await store.setValue('currentScreenshot.png', screenshotBuffer, { contentType: 'image/png' });
     
